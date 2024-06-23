@@ -16,11 +16,11 @@ export default function App() {
 
   return (
     <div className="App">
-      <Router>
+      <Router basename="/task-manager-app">
         <CustomNavbar />
         <Routes>
           <Route
-            exact path = "/"
+            path = "/"
             element={
               <>
                 <Home />
