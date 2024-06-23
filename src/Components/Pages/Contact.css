@@ -1,0 +1,23 @@
+label {
+    display: block;
+}
+
+textarea {
+    width: 100%;
+}
+
+.contact-btn {
+    background-color: lightblue;
+    margin-top: 15px;
+    width: 65%;
+}
+
+.contact-btn:hover {
+    font-style: italic;
+}
+
+.contact-row {
+    display: inline-block;
+    align-items: center;
+    width: 65%;
+}
