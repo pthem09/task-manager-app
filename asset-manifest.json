@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/task-manager-app/static/css/main.964fdded.css",
-    "main.js": "/task-manager-app/static/js/main.0118311e.js",
+    "main.css": "/task-manager-app/static/css/main.6db02b32.css",
+    "main.js": "/task-manager-app/static/js/main.c0b76137.js",
     "index.html": "/task-manager-app/index.html",
-    "main.964fdded.css.map": "/task-manager-app/static/css/main.964fdded.css.map",
-    "main.0118311e.js.map": "/task-manager-app/static/js/main.0118311e.js.map"
+    "main.6db02b32.css.map": "/task-manager-app/static/css/main.6db02b32.css.map",
+    "main.c0b76137.js.map": "/task-manager-app/static/js/main.c0b76137.js.map"
   },
   "entrypoints": [
-    "static/css/main.964fdded.css",
-    "static/js/main.0118311e.js"
+    "static/css/main.6db02b32.css",
+    "static/js/main.c0b76137.js"
   ]
 }
