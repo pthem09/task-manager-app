@@ -15,9 +15,11 @@ const LIST_FILTER = {
 export default function Home() {
   let [toDoItems, setToDoItems] = useState(getInitialState());
   let [filteredItems, setFilteredItems] = useState(getInitialCopiedState());
+  let [filterChoice, setFilterChoice] = useState(getInitialFilterChoice());
 
   useEffect(saveToDoItems, [toDoItems]);
   useEffect(saveCopiedItems, [filteredItems]);
+  useEffect(saveFilterChoice, [filterChoice]);
 
   function saveToDoItems() {
     localStorage.setItem("items", JSON.stringify(toDoItems));
@@ -25,6 +27,10 @@ export default function Home() {
   
   function saveCopiedItems() {
     localStorage.setItem("copiedItems", JSON.stringify(filteredItems));
+  }
+
+  function saveFilterChoice() {
+    localStorage.setItem("appliedFilter", JSON.stringify(filterChoice));
   }
   
   function getInitialState() {
@@ -41,6 +47,14 @@ export default function Home() {
       return JSON.parse(savedCopiedState);
     }
     return [];
+  }
+
+  function getInitialFilterChoice() {
+    let savedFilter = localStorage.getItem("appliedFilter");
+    if (typeof savedFilter === "string") {
+      return JSON.parse(savedFilter);
+    }
+    return "All";
   }
 
   function addItem(date, category, link, description, priority, completed) {
@@ -172,10 +186,13 @@ export default function Home() {
 
   function updateFilteredList(choice) {
     if (choice === "All") {
+      setFilterChoice("All");
       setFilteredItems(toDoItems);
     } else if (choice === "Pending") {
+      setFilterChoice("Pending");
       setFilteredItems(toDoItems.filter((item) => !item.completed));
     } else {
+      setFilterChoice("Completed");
       setFilteredItems(toDoItems.filter((item) => item.completed));
       
     }
