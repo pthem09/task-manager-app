@@ -1,0 +1,8 @@
+.contact-btn {
+    background-color: lightblue;
+    margin-top: 15px;
+}
+
+.contact-btn:hover {
+    font-style: italic;
+}

@@ -1,0 +1,50 @@
+.to-do-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.to-do-item-container {
+    width: 20rem;
+    box-shadow: 0px 0px 10px rgba(155, 155, 155, 0.8);
+    text-align: left;
+}
+
+.to-do-item-anchor {
+    color: darkblue;
+}
+
+.to-do-item-anchor:visited {
+    color: lightgreen;
+}
+
+.card-header-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-button {
+    background-color: darkred;
+    border: none; 
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+}
+
+.task-filter-selected {
+    font-style: italic;
+}
+
+.task-filter-pill {
+    background-color: black;
+    border: none;
+    border-radius: 35%;
+    justify-content: center;
+    width: 175px;
+    display: inline-flex;
+    margin: 5px;
+}
+
+.completed-task {
+    text-decoration: line-through;
+}
