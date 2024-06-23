@@ -5,10 +5,10 @@ export default function CustomNavbar() {
   return (
     <Nav>
         <NavMenu>
-            <NavLink to="/" activeStyle>
+            <NavLink to="." activeStyle>
                 Home
             </NavLink>
-            <NavLink to="/contact" activeStyle>
+            <NavLink to="./contact" activeStyle>
                 Contact
             </NavLink>
         </NavMenu>

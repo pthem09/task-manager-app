@@ -31,6 +31,14 @@ export default function ToDoItem({
 
     const toggle = () => setModal(oldModalState => !oldModalState);
 
+    let isChecked = Boolean(false);
+    let completedTask = '';
+
+    if (completed) {
+        isChecked = Boolean(true);
+        completedTask = "completed-task";
+    }
+
     function handleDelete() {
         deleteItem(id);
     }
@@ -63,7 +71,7 @@ export default function ToDoItem({
             color="secondary"
             inverse>
         <CardHeader
-            className={`card-header-footer`}
+            className={`card-header-footer ${completedTask}`}
             id={`${id}-header`}
         >
             <div>
@@ -101,6 +109,7 @@ export default function ToDoItem({
                         type="checkbox"
                         id={`${id}-checkbox`}
                         onClick={handleComplete}
+                        checked={isChecked}
                     />
                     <Label check>
                         Mark complete
@@ -108,7 +117,7 @@ export default function ToDoItem({
                 </FormGroup>
         </CardBody>
         <CardFooter
-            className="card-header-footer"
+            className={`card-header-footer ${completedTask}`}
             id={`${id}-footer`}
         >
             {date} (Importance: { priority })
