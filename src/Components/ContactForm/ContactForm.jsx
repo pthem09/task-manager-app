@@ -1,42 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Button, FormGroup, Label, Input } from "reactstrap";
 import "./Contact.css";
 
-export default function ContactForm(
-    defaultFirstName,
-    defaultLastName,
-    defaultEmail,
-    defaultMessage
-) {
+export default function ContactForm() {
 
-    const [firstName, setFirst] = useState(defaultFirstName ?? '');
-    const [lastName, setLast] = useState(defaultLastName ?? '');
-    const [email, setEmail] = useState(defaultEmail ?? '');
-    const [message, setMessage] = useState(defaultMessage ?? '');
+    let [firstName, setFirst] = useState(getInitialFirst());
+    useEffect(saveFirst, firstName);
+
+    function saveFirst() {
+        localStorage.setItem("first", JSON.stringify(firstName));
+    }
+
+    function getInitialFirst() {
+        let savedState = localStorage.getItem("first");
+        if (typeof savedState === "string") {
+            return JSON.parse(savedState);
+        }
+        return [];
+    }
     
     function handleFirstNameChange(e) {
+        alert("here I go");
         setFirst(e.target.value);
-    }
-
-    function handleLastNameChange(e) {
-        setLast(e.target.value);
-    }    
-    
-    function handleEmailChange(e) {
-        setEmail(e.target.value);
-    }
-
-    function handleMessageChange(e) {
-        setMessage(e.target.value);
-    }
-
-    
-    function handleSubmit(e) {
-        setFirst('');
-        setLast('');
-        setEmail('');
-        setMessage('');
-
     }
 
   return (
@@ -51,9 +36,10 @@ export default function ContactForm(
             </Label>
             <Input
                 type="text"
+                input={firstName}
                 id="first-name-area"
                 onChange={handleFirstNameChange}
-                required
+                required=""
             >
             </Input>
         </FormGroup>
@@ -66,8 +52,7 @@ export default function ContactForm(
             <Input
                 type="text"
                 id="last-name-area"
-                onChange={handleLastNameChange}
-                required
+                required=""
             >
             </Input>
         </FormGroup>
@@ -80,8 +65,7 @@ export default function ContactForm(
             <Input
                 type="email"
                 id="email-area"
-                onChange={handleEmailChange}
-                required
+                required=""
             >
             </Input>
         </FormGroup>
@@ -95,8 +79,7 @@ export default function ContactForm(
                 type="text"
                 id="message-area"
                 rows="4"
-                onChange={handleMessageChange}
-                required
+                required=""
             >
             </textarea>
         </FormGroup>
