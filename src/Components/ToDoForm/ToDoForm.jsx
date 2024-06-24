@@ -83,6 +83,9 @@ export default function ToDoForm({
                 />
             </FormGroup>
             <FormGroup>
+                <Label htmlFor={`${idPrefix}link-date`}>
+                    Date
+                </Label>
                 <Input
                     type="date"
                     name="date"
