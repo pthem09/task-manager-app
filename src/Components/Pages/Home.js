@@ -35,7 +35,7 @@ export default function Home() {
   
   function getInitialState() {
     let savedState = localStorage.getItem("items");
-    if (typeof savedState === "string") {
+    if (savedState !== null && typeof savedState === "string") {
       return JSON.parse(savedState);
     }
     return [];
@@ -43,7 +43,7 @@ export default function Home() {
 
   function getInitialCopiedState() {
     let savedCopiedState = localStorage.getItem("copiedItems");
-    if (typeof savedCopiedState === "string" && savedCopiedState.length > 0) {
+    if (savedCopiedState !== null && typeof savedCopiedState === "string" && savedCopiedState.length > 0) {
       return JSON.parse(savedCopiedState);
     }
     return [];
@@ -51,7 +51,7 @@ export default function Home() {
 
   function getInitialFilterChoice() {
     let savedFilter = localStorage.getItem("appliedFilter");
-    if (typeof savedFilter === "string") {
+    if (savedFilter !== null && typeof savedFilter === "string") {
       return JSON.parse(savedFilter);
     }
     return "All";
